@@ -1,0 +1,107 @@
+definitions:
+  http.TodolistReqItem:
+    properties:
+      comment:
+        type: string
+      createTime:
+        type: string
+      name:
+        type: string
+      time:
+        type: string
+      uuid:
+        type: string
+    type: object
+host: localhost
+info:
+  contact:
+    email: lensferno@outlook.com
+    name: lensfrex
+  description: 武科大助手todolist模块（原倒计时模块）
+  title: 武科大助手todolist模块（原倒计时模块）
+  version: 0.0.1
+paths:
+  /add-countdown:
+    post:
+      consumes:
+      - application/json
+      description: 添加一条todo
+      parameters:
+      - description: token
+        in: header
+        name: token
+        type: string
+      - description: todo信息
+        in: body
+        name: object
+        schema:
+          $ref: '#/definitions/http.TodolistReqItem'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: uint64
+      summary: 添加一条todo
+      tags:
+      - ""
+  /del-countdown:
+    get:
+      consumes:
+      - '*/*'
+      description: 删除一个todo项
+      parameters:
+      - description: token
+        in: header
+        name: token
+        type: string
+      - description: 欲删除的id
+        in: query
+        name: uuid
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: 删除一个todo项
+      tags:
+      - ""
+  /list-countdown:
+    get:
+      consumes:
+      - '*/*'
+      description: 获取用户当前的todolist
+      parameters:
+      - description: token
+        in: header
+        name: token
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: 获取用户当前的todolist
+      tags:
+      - ""
+  /modify-countdown:
+    get:
+      consumes:
+      - '*/*'
+      description: 复制一个todo项（添加分享的倒计时）
+      parameters:
+      - description: token
+        in: header
+        name: token
+        type: string
+      - description: 欲添加的id
+        in: query
+        name: uuid
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: 复制一个todo项（添加分享的倒计时）
+      tags:
+      - ""
+schemes:
+- http
+swagger: "2.0"

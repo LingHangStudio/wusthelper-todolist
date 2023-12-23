@@ -1,0 +1,21 @@
+Database:
+  Host: 127.0.0.1
+  Port: 3306
+  Username: root
+  Password: Test2333!
+  DbName: wust_helper
+  PrintSql: true
+  ExtraParams:
+    useUnicode: 'true'
+    characterEncoding: utf-8
+    useSSL: 'false'
+    serverTimezone: Asia/Shanghai
+Server:
+  Address: 0.0.0.0
+  Port: 12452
+  BaseUrl: /api/v2
+  TokenSecret: wusthelper
+  Env: dev
+  TokenTimeout: 15
+  LogLocation: ./logs/server.log
+  VersionLogFile: ./conf/update_log.json
